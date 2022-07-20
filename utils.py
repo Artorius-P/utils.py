@@ -4,17 +4,16 @@ from threading import Thread
 
 
 def timing(func):
-
     def wrapper(*args, **kwargs):
         start = time.time()
-        func(*args, **kwargs)
+        res = func(*args, **kwargs)
         end = time.time()
         print(
             "================================================================="
         )
         print("function {} using time: {:.5f}".format(func.__name__,
-                                                      end - start))
-
+                                                      end - start)
+        return res
     return wrapper
 
 
